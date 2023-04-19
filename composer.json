@@ -14,7 +14,7 @@
         "laravel/framework": ">=5.0.0",
         "michielkempen/nova-polymorphic-field": "^1.0.6",
         "epartment/nova-dependency-container": "^1.1",
-        "laravel/nova": "*",
+        "laravel/nova": "^3.0",
         "dewsign/nova-field-sortable": "^0.2.0",
         "parsedown/laravel": "^1.1",
         "laravel/helpers": "^1.1"
