@@ -127,8 +127,16 @@ class Repeater extends Resource
     {
         $infoValue = '';
 
-        if (method_exists($this->type, 'getExtraInfo')) {
-            $infoValue = $this->type->getExtraInfo();
+        if (!$resourceId = static::getResourceId($request)) {
+            return Arr::wrap(Text::make(__('Extra Info'), function () use ($infoValue) {
+                return BaseRepeater::getPrettyFilename($infoValue);
+            })->onlyOnIndex());
+        }
+
+        $type = optional($this->model()->whereId($resourceId)->first())->type;
+
+        if ($type && method_exists($type, 'getExtraInfo')) {
+            $infoValue = $type->getExtraInfo();
         }
 
         return Arr::wrap(Text::make(__('Extra Info'), function () use ($infoValue) {
