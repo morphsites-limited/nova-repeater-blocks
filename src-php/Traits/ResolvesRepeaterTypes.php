@@ -17,7 +17,7 @@ trait ResolvesRepeaterTypes
      */
     public function getActionAttribute()
     {
-        if (!method_exists($this->type, 'resolveAction')) {
+        if (empty($this->type) || ! method_exists($this->type, 'resolveAction')) {
             return null;
         }
 
@@ -31,7 +31,7 @@ trait ResolvesRepeaterTypes
      */
     public function getLabelAttribute()
     {
-        if (!method_exists($this->type, 'resolveLabel')) {
+        if (empty($this->type) || ! method_exists($this->type, 'resolveLabel')) {
             return $this->title;
         }
 
@@ -46,7 +46,7 @@ trait ResolvesRepeaterTypes
      */
     public function getViewAttribute()
     {
-        if (!method_exists($this->type, 'resolveView')) {
+        if (empty($this->type) || ! method_exists($this->type, 'resolveView')) {
             return null;
         }
 
@@ -60,7 +60,7 @@ trait ResolvesRepeaterTypes
      */
     public function getModelAttribute()
     {
-        if (!method_exists($this->type, 'resolveModel')) {
+        if (empty($this->type) || ! method_exists($this->type, 'resolveModel')) {
             return null;
         }
 
